@@ -1,0 +1,11 @@
+export GOIN="$HOME/goinfre"
+
+if [ ! -d $GOIN/setting ]; then
+  git clone https://github.com/taerakim/setting $GOIN/setting
+fi
+if [ -f $GOIN/setting/init.sh ]; then
+  bash $GOIN/setting/init.sh
+fi
+if [ ! $SET_PREFER -eq true ]; then
+  bash $GOIN/setting/preference.sh
+fi
