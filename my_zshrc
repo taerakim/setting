@@ -1,9 +1,7 @@
 export GOIN="$HOME/goinfre"
 
-if [ ! -d $GOIN/setting ]; then
-  git clone https://github.com/taerakim/setting $GOIN/setting
-  if [ -f $GOIN/setting/init.sh ]; then
-    bash $GOIN/setting/init.sh
-    bash $GOIN/setting/preference.sh
-  fi
+# setting/init.sh
+if [ "$INIT" != true ]; then
+  bash ~/init.sh
+  export INIT=true;
 fi
