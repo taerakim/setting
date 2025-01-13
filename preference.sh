@@ -44,5 +44,3 @@ echo "Mouse setting"
 #	end tell
 #EOD
 #echo "Display setting"
-
-export SET_PREFER="true"

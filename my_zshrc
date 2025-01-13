@@ -5,7 +5,5 @@ if [ ! -d $GOIN/setting ]; then
 fi
 if [ -f $GOIN/setting/init.sh ]; then
   bash $GOIN/setting/init.sh
-fi
-if [ ! $SET_PREFER -eq true ]; then
   bash $GOIN/setting/preference.sh
 fi
