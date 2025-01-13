@@ -4,7 +4,8 @@
 [core]
 	quotepath = false
 
-# for git diff (`git-delta`)
+# for git diff
+# need to install `git-delta`
 [core]
     pager = delta
 [interactive]
