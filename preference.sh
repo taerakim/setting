@@ -6,10 +6,13 @@ PREF_KEYBOARD="com.apple.preference.keyboard"
 PREF_MOUSE="com.apple.preference.mouse"
 PREF_DISPLAYS="com.apple.preference.displays"
 
-if [ "RE" != "true" ]; then
+if [ "$#" -eq 0 ]; then
+  echo "init wait "
   sleep 5
 fi
 
+if [[ "$#" -eq 0 || "$1" -eq 1 ]]; then
+echo "Keyboard Tab key setting"
 osascript <<EOD
 	tell application "System Preferences"
 		activate
@@ -17,10 +20,12 @@ osascript <<EOD
 		return --for remove 'missing value'
 	end tell
 EOD
-echo "Keyboard Tab key setting"
-
 sleep 3
+fi
 
+
+if [[ "$#" -eq 0 || "$1" -eq 2 ]]; then
+echo "Keyboard setting"
 osascript <<EOD
 	tell application "System Preferences"
 		activate
@@ -28,10 +33,11 @@ osascript <<EOD
 		return --for remove 'missing value'
 	end tell
 EOD
-echo "Keyboard setting"
+sleep 5
+fi
 
-sleep 3
-
+if [[ "$#" -eq 0 || "$1" -eq 3 ]]; then
+echo "Mouse setting"
 osascript <<EOD
 	tell application "System Preferences"
 		activate
@@ -39,14 +45,16 @@ osascript <<EOD
 		return --for remove 'missing value'
 	end tell
 EOD
-echo "Mouse setting"
+sleep 3
+fi
 
-#sleep 3
-#osascript <<EOD
-#	tell application "System Preferences"
-#		activate
-#		reveal pane id "$PREF_DISPLAYS"
-#		return --for remove 'missing value'
-#	end tell
-#EOD
-#echo "Display setting"
+if [[ "$1" -eq 4 ]]; then
+echo "Display setting"
+osascript <<EOD
+	tell application "System Preferences"
+		activate
+		reveal pane id "$PREF_DISPLAYS"
+		return --for remove 'missing value'
+	end tell
+EOD
+fi
